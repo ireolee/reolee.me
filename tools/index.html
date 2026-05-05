@@ -1,0 +1,828 @@
+<!DOCTYPE html><html class="bg-background text-foreground scheme-light-dark" lang="zh-CN"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v6.0.2"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: light)"><link rel="sitemap" href="/sitemap-index.xml"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="application/rss+xml" title="Reo Lee" href="https://reolee.me/rss.xml"><!-- Prefer SVG favicons and provide a dark variant for dark OS/browser UI. --><link rel="icon" type="image/svg+xml" href="/favicon.svg" media="(prefers-color-scheme: light)"><link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" href="/favicon.ico"><meta name="apple-mobile-web-app-title" content="astro-erudite"><link rel="manifest" href="/site.webmanifest"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DmQZLfuR.js"></script><title>工具 | Reo Lee</title><meta name="description" content="常用静态工具：时间戳转换、JSON处理、字符串处理、集合运算、文本对比。"><link rel="canonical" href="https://reolee.me"><meta property="og:title" content="工具"><meta property="og:description" content="常用静态工具：时间戳转换、JSON处理、字符串处理、集合运算、文本对比。"><meta property="og:image" content="https://reolee.me/static/1200x630.png"><meta property="og:image:alt" content="工具"><meta property="og:type" content="website"><meta property="og:locale" content="zh-CN"><meta property="og:site_name" content="Reo Lee"><meta property="og:url" content="https://reolee.me/tools/"><meta name="twitter:title" content="工具"><meta name="twitter:description" content="常用静态工具：时间戳转换、JSON处理、字符串处理、集合运算、文本对比。"><meta name="twitter:image" content="https://reolee.me/static/1200x630.png"><meta name="twitter:image:alt" content="工具"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/layout.CK6YlOKS.css"></head><body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans"> <header data-auto-hide-header class="bg-background/50 sticky top-0 z-50 divide-y backdrop-blur-sm xl:divide-none transform-gpu translate-y-0 opacity-100 transition-[translate,opacity] duration-200 ease-in-out motion-reduce:transition-none"> <div> <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3"> <a href="/" target="_self" class="transition-colors duration-300 ease-in-out flex shrink-0 items-center justify-center gap-3">   <img src="/_astro/logo.Pc_-MsJj_ZeCMrT.svg" alt="Logo" loading="lazy" decoding="async" width="1966" height="1989" class="size-5 sm:size-6 dark:invert"> <span class="hidden h-full text-lg leading-none font-medium min-[400px]:block">Reo Lee</span>  </a> <div class="flex items-center gap-4"> <nav class="flex items-center gap-4 text-sm sm:gap-6"> <a href="/tools" target="_self" class="inline-block duration-300 ease-in-out text-foreground/60 hover:text-foreground capitalize transition-colors"> 工具 </a><a href="/tags" target="_self" class="inline-block duration-300 ease-in-out text-foreground/60 hover:text-foreground capitalize transition-colors"> 标签 </a><a href="/about" target="_self" class="inline-block duration-300 ease-in-out text-foreground/60 hover:text-foreground capitalize transition-colors"> 关于 </a> </nav> <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 -my-2 -me-2 size-8" id="theme-toggle" title="切换主题"> <svg width="1em" height="1em" class="size-4 dark:hidden" data-icon="lucide:sun">   <symbol id="ai:lucide:sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol><use href="#ai:lucide:sun"></use>  </svg> <svg width="1em" height="1em" class="absolute hidden size-4 dark:block" data-icon="lucide:moon">   <symbol id="ai:lucide:moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><use href="#ai:lucide:moon"></use>  </svg> <span class="sr-only">切换主题</span> </button> <script data-astro-rerun>
+  ;(() => {
+    const theme = (() => {
+      const stored = localStorage?.getItem('theme') ?? ''
+      if (['dark', 'light'].includes(stored)) return stored
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    })()
+
+    document.documentElement.setAttribute('data-theme', theme)
+    window.localStorage.setItem('theme', theme)
+  })()
+</script> <script type="module">function a(){const e=document.documentElement,n=e.getAttribute("data-theme")==="dark"?"light":"dark";e.classList.add("[&_*]:transition-none"),e.setAttribute("data-theme",n),window.getComputedStyle(e).getPropertyValue("opacity"),requestAnimationFrame(()=>{e.classList.remove("[&_*]:transition-none")}),localStorage.setItem("theme",n)}function o(){document.getElementById("theme-toggle")?.addEventListener("click",a)}o();document.addEventListener("astro:after-swap",()=>{const e=localStorage.getItem("theme")||"light",t=document.documentElement;t.classList.add("[&_*]:transition-none"),window.getComputedStyle(t).getPropertyValue("opacity"),t.setAttribute("data-theme",e),requestAnimationFrame(()=>{t.classList.remove("[&_*]:transition-none")}),o()});</script> </div> </div> </div>   </header> <main class="w-full mx-auto flex grow flex-col gap-y-6 px-4 max-w-3xl">   <section class="mx-auto flex w-full max-w-3xl flex-col gap-6" data-tools-root> <div class="bg-background/80 sticky z-10 rounded-2xl border p-2 backdrop-blur-sm transform-gpu translate-y-0 opacity-100 transition-[translate,opacity] duration-200 ease-in-out motion-reduce:transition-none" style="top: var(--anchor-scroll-offset, 0px)" data-tools-tabs-shell> <div class="flex gap-2 overflow-x-auto" role="tablist" aria-label="工具选项卡" data-tools-tabs> <button type="button" role="tab" class="tools-tab inline-flex min-w-fit items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-center text-sm transition-colors bg-muted text-foreground" data-tab-trigger data-tab-id="timestamp" aria-selected="true" tabindex="0"> <svg width="1em" height="1em" class="size-4 shrink-0 hidden sm:block" data-icon="lucide:clock-3">   <symbol id="ai:lucide:clock-3" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6h4"/></g></symbol><use href="#ai:lucide:clock-3"></use>  </svg> <span class="font-medium">时间戳转换</span> </button> <button type="button" role="tab" class="tools-tab inline-flex min-w-fit items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-center text-sm transition-colors text-muted-foreground hover:bg-muted/60 hover:text-foreground" data-tab-trigger data-tab-id="string" aria-selected="false" tabindex="-1"> <svg width="1em" height="1em" class="size-4 shrink-0 hidden sm:block" data-icon="lucide:text-cursor-input">   <symbol id="ai:lucide:text-cursor-input" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h-1a2 2 0 0 1-2-2a2 2 0 0 1-2 2H6m7-12h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7m-8 0H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1m1-4h1a2 2 0 0 1 2 2a2 2 0 0 1 2-2h1M9 6v12"/></symbol><use href="#ai:lucide:text-cursor-input"></use>  </svg> <span class="font-medium">字符串处理</span> </button> <button type="button" role="tab" class="tools-tab inline-flex min-w-fit items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-center text-sm transition-colors text-muted-foreground hover:bg-muted/60 hover:text-foreground" data-tab-trigger data-tab-id="set" aria-selected="false" tabindex="-1"> <svg width="1em" height="1em" class="size-4 shrink-0 hidden sm:block" data-icon="lucide:venetian-mask">   <symbol id="ai:lucide:venetian-mask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M18 11c-1.5 0-2.5.5-3 2"/><path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5a8 8 0 0 1 5 2a8 8 0 0 1 5-2a5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2a8 8 0 0 0-5-2z"/><path d="M6 11c1.5 0 2.5.5 3 2"/></g></symbol><use href="#ai:lucide:venetian-mask"></use>  </svg> <span class="font-medium">集合运算</span> </button> <button type="button" role="tab" class="tools-tab inline-flex min-w-fit items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-center text-sm transition-colors text-muted-foreground hover:bg-muted/60 hover:text-foreground" data-tab-trigger data-tab-id="json" aria-selected="false" tabindex="-1"> <svg width="1em" height="1em" class="size-4 shrink-0 hidden sm:block" data-icon="lucide:brackets">   <symbol id="ai:lucide:brackets" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-3m-8 0H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3"/></symbol><use href="#ai:lucide:brackets"></use>  </svg> <span class="font-medium">JSON处理</span> </button> <button type="button" role="tab" class="tools-tab inline-flex min-w-fit items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-center text-sm transition-colors text-muted-foreground hover:bg-muted/60 hover:text-foreground" data-tab-trigger data-tab-id="diff" aria-selected="false" tabindex="-1"> <svg width="1em" height="1em" class="size-4 shrink-0 hidden sm:block" data-icon="lucide:file-diff">   <symbol id="ai:lucide:file-diff" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm3-12h6m-3 3V7M9 17h6"/></symbol><use href="#ai:lucide:file-diff"></use>  </svg> <span class="font-medium">文本对比</span> </button> </div> </div> <div class="min-w-0 space-y-6"> <section role="tabpanel" data-tab-panel data-tab-id="timestamp" class="space-y-6"> <div class="rounded-2xl border p-5 sm:p-6"> <div class="grid gap-5"> <div class="grid gap-4 lg:grid-cols-2"> <label class="flex flex-col gap-2"> <span class="text-sm font-medium">时间戳</span> <div class="flex items-center gap-2"> <input data-ts1-input class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 h-11 w-full rounded-xl border px-4 text-sm outline-none focus-visible:ring-[3px]" placeholder="例如 1714808267"> <select data-ts1-unit class="border-input bg-background focus-visible:ring-ring/50 h-11 rounded-xl border px-3 text-sm outline-none focus-visible:ring-[2px]"> <option value="s" selected>秒级</option> <option value="ms">毫秒级</option> </select> </div> </label> <label class="flex flex-col gap-2"> <span class="text-sm font-medium">时间字符串</span> <input data-ts1-output readonly class="border-input bg-muted/20 text-foreground h-11 rounded-xl border px-4 text-sm outline-none" placeholder="—"> </label> </div> <div class="grid gap-4 lg:grid-cols-2"> <label class="flex flex-col gap-2"> <span class="text-sm font-medium">时间字符串</span> <input data-ts2-input class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 h-11 rounded-xl border px-4 text-sm outline-none focus-visible:ring-[3px]" placeholder="例如 2026-05-04 15:37:47"> </label> <label class="flex flex-col gap-2"> <span class="text-sm font-medium">时间戳</span> <div class="flex items-center gap-2"> <input data-ts2-output readonly class="border-input bg-muted/20 text-foreground h-11 w-full rounded-xl border px-4 text-sm outline-none" placeholder="—"> <select data-ts2-unit class="border-input bg-background focus-visible:ring-ring/50 h-11 rounded-xl border px-3 text-sm outline-none focus-visible:ring-[2px]"> <option value="s" selected>秒级</option> <option value="ms">毫秒级</option> </select> </div> </label> </div> </div> </div> </section> <section role="tabpanel" data-tab-panel data-tab-id="json" class="hidden space-y-6"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>Number.POSITIVE_INFINITY*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="ZIcRqn" prefix="r3" component-url="/_astro/json-tools-editor.Cja3yVkD.js" component-export="default" renderer-url="/_astro/client.CvK2Ro-4.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;JsonToolsEditor&quot;,&quot;value&quot;:true}" await-children><div class="tools-wide-card rounded-2xl border p-5 sm:p-6"><div class="mb-4 flex flex-wrap gap-2"><button class="tools-action-btn tools-busy-btn" type="button">JSON 格式化</button><button class="tools-secondary-btn tools-busy-btn" type="button">JSON 转义</button><button class="tools-secondary-btn tools-busy-btn" type="button">JSON 去转义</button><button class="tools-secondary-btn" type="button">清空</button></div><div class="tools-wide"><div class="grid gap-4 lg:grid-cols-2"><div class="flex flex-col gap-2"><span class="text-sm font-medium">输入</span><div class="diff-input-wrap json-copy-wrap"><div class="json-cm h-full w-full"></div><button class="tools-copy-btn" type="button" aria-label="复制内容"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy tools-copy-icon tools-copy-icon--default size-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check tools-copy-icon tools-copy-icon--copied size-4"><path d="M20 6 9 17l-5-5"></path></svg></button></div></div><div class="flex flex-col gap-2"><span class="text-sm font-medium">输出</span><div class="diff-input-wrap json-copy-wrap"><div class="json-output-shell h-full w-full"><div class="diff-input-gutter json-output-gutter" aria-hidden="true"><div class="diff-input-gutter-inner json-output-gutter-inner" style="transform:translateY(0px)"><span class="diff-input-line-no json-output-line-no">1</span></div></div><div class="diff-input-body json-output-editor"><div class="json-cm h-full w-full json-output-cm"></div><button class="tools-copy-btn" type="button" aria-label="复制内容"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy tools-copy-icon tools-copy-icon--default size-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check tools-copy-icon tools-copy-icon--copied size-4"><path d="M20 6 9 17l-5-5"></path></svg></button></div></div></div></div></div></div><style>
+        .json-output-shell {
+          display: flex;
+          height: 100%;
+        }
+        .json-output-editor {
+          min-width: 0;
+          overflow: hidden;
+        }
+        .json-output-cm .cm-scroller {
+          scrollbar-gutter: stable both-edges;
+        }
+        .json-output-gutter-inner {
+          will-change: transform;
+        }
+        .json-copy-wrap {
+          position: relative;
+        }
+      </style></div><!--astro:end--></astro-island> </section> <section role="tabpanel" data-tab-panel data-tab-id="string" class="hidden space-y-6"> <div class="rounded-2xl border p-5 sm:p-6"> <div class="mb-4 flex flex-wrap items-center gap-2"> <label class="flex items-center gap-2"> <span class="text-sm font-medium">数据类型</span> <select data-string-type class="border-input bg-background focus-visible:ring-ring/50 h-9 rounded-lg border px-2 text-sm outline-none focus-visible:ring-[2px]"> <option value="string" selected>字符串</option> <option value="number">数字</option> </select> </label> <button class="tools-action-btn tools-busy-btn" type="button" data-string-action="dedupe"> <span data-tools-btn-text>去重</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" class="size-4 animate-spin" data-icon="lucide:loader-2">   <symbol id="ai:lucide:loader-2" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol><use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-action-btn tools-busy-btn" type="button" data-string-action="sort-asc"> <span data-tools-btn-text>升序</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-action-btn tools-busy-btn" type="button" data-string-action="sort-desc"> <span data-tools-btn-text>降序</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-secondary-btn" type="button" data-string-action="clear">清空</button> </div> <div class="grid gap-4 lg:grid-cols-2"> <div class="flex min-h-[18rem] flex-col gap-2"> <div class="flex items-center justify-between gap-3"> <span class="text-sm font-medium">输入</span> <div class="text-xs text-muted-foreground">
+元素个数：<span data-string-input-count>0</span> </div> </div> <div class="tools-copy-wrap"> <textarea data-string-input data-tools-copy-source="string-input" class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-[18rem] rounded-2xl border px-4 py-3 font-mono text-xs outline-none focus-visible:ring-[3px]" placeholder="支持 10W+ 条目，自动识别分隔符。"></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="string-input" aria-label="复制内容"> <svg width="1em" height="1em" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <symbol id="ai:lucide:copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></g></symbol><use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <symbol id="ai:lucide:check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></symbol><use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> <div class="flex min-h-[18rem] flex-col gap-2"> <div class="flex items-center justify-between gap-3"> <span class="text-sm font-medium">输出</span> <div class="text-xs text-muted-foreground">
+元素个数：<span data-string-output-count>0</span> </div> </div> <div class="tools-copy-wrap"> <textarea data-string-output data-tools-copy-source="string-output" readonly class="border-input bg-muted/20 text-foreground min-h-[18rem] rounded-2xl border px-4 py-3 font-mono text-xs outline-none"></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="string-output" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> </div> </div> </section> <section role="tabpanel" data-tab-panel data-tab-id="set" class="hidden space-y-6"> <div class="rounded-2xl border p-5 sm:p-6"> <div class="mb-4 flex flex-wrap items-center gap-2"> <button class="tools-action-btn tools-busy-btn" type="button" data-set-action="intersection"> <span data-tools-btn-text>交集 A ∩ B</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-action-btn tools-busy-btn" type="button" data-set-action="union"> <span data-tools-btn-text>并集 A ∪ B</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-secondary-btn tools-busy-btn" type="button" data-set-action="difference-ab"> <span data-tools-btn-text>去重差集 A - B</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-secondary-btn tools-busy-btn" type="button" data-set-action="difference-ab-multi"> <span data-tools-btn-text>非去重差集 A - B</span> <span class="tools-btn-loader hidden" data-tools-btn-loader> <svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 animate-spin" data-icon="lucide:loader-2">   <use href="#ai:lucide:loader-2"></use>  </svg> </span> </button> <button class="tools-secondary-btn" type="button" data-set-action="clear">清空</button> </div> <div class="grid gap-4 lg:[grid-template-columns:minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center"> <div class="flex min-h-[18rem] flex-col gap-2"> <div class="flex items-center justify-between gap-3"> <span class="text-sm font-medium">集合 A</span> <div class="text-xs text-muted-foreground">
+元素个数：<span data-set-a-count>0</span> </div> </div> <div class="tools-copy-wrap"> <textarea data-set-a data-tools-copy-source="set-a" class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-[18rem] rounded-2xl border px-4 py-3 font-mono text-xs outline-none focus-visible:ring-[3px]"></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="set-a" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> <div class="flex justify-center lg:pt-8"> <button class="tools-secondary-btn tools-swap-btn" type="button" data-set-action="swap" aria-label="交换集合 A 和集合 B" title="交换集合 A 和集合 B"> <svg width="1em" height="1em" class="size-4" data-icon="lucide:arrow-left-right">   <symbol id="ai:lucide:arrow-left-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3L4 7l4 4M4 7h16m-4 14l4-4l-4-4m4 4H4"/></symbol><use href="#ai:lucide:arrow-left-right"></use>  </svg> </button> </div> <div class="flex min-h-[18rem] flex-col gap-2"> <div class="flex items-center justify-between gap-3"> <span class="text-sm font-medium">集合 B</span> <div class="text-xs text-muted-foreground">
+元素个数：<span data-set-b-count>0</span> </div> </div> <div class="tools-copy-wrap"> <textarea data-set-b data-tools-copy-source="set-b" class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-[18rem] rounded-2xl border px-4 py-3 font-mono text-xs outline-none focus-visible:ring-[3px]"></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="set-b" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> </div> <div class="mt-4 flex min-h-[16rem] flex-col gap-2"> <div class="flex items-center justify-between gap-3"> <span class="text-sm font-medium">输出</span> <div class="text-xs text-muted-foreground">
+元素个数：<span data-set-output-count>0</span> </div> </div> <div class="tools-copy-wrap"> <textarea data-set-output data-tools-copy-source="set-output" readonly class="border-input bg-muted/20 text-foreground min-h-[16rem] rounded-2xl border px-4 py-3 font-mono text-xs outline-none"></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="set-output" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> </div> </section> <section role="tabpanel" data-tab-panel data-tab-id="diff" class="hidden space-y-6"> <div class="tools-wide-card rounded-2xl border p-5 sm:p-6"> <div class="flex flex-wrap items-center gap-3"> <label class="flex items-center gap-2"> <span class="text-sm font-medium">高亮语言</span> <select data-diff-lang class="border-input bg-background focus-visible:ring-ring/50 h-9 rounded-lg border px-2 text-sm outline-none focus-visible:ring-[2px]"> <option value="plaintext">纯文本</option> <option value="json">JSON</option> <option value="javascript">JavaScript</option> <option value="typescript">TypeScript</option> <option value="html">HTML</option> <option value="css">CSS</option> <option value="markdown">Markdown</option> <option value="bash">Shell</option> <option value="sql">SQL</option> <option value="go">Go</option> <option value="rust">Rust</option> <option value="python">Python</option> <option value="java">Java</option> </select> </label> <button class="tools-action-btn" type="button" data-diff-action="compare">生成对比</button> <button class="tools-secondary-btn" type="button" data-diff-action="clear">清空</button> </div> <div class="mt-4 tools-wide"> <div class="grid gap-4 lg:grid-cols-2"> <div class="flex flex-col gap-2"> <span class="text-sm font-medium">旧文本</span> <div class="diff-input-wrap" data-diff-input-wrap="old"> <div class="diff-input-gutter" data-diff-gutter="old"> <div class="diff-input-gutter-inner" data-diff-old-ln></div> </div> <div class="diff-input-body"> <pre class="diff-input-highlight" aria-hidden="true"><code class="hljs diff-input-code" data-diff-old-hl></code></pre> <textarea data-diff-old data-tools-copy-source="diff-old" wrap="off" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" class="diff-input-textarea" placeholder="输入原始文本..."></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="diff-old" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> </div> <div class="flex flex-col gap-2"> <span class="text-sm font-medium">新文本</span> <div class="diff-input-wrap" data-diff-input-wrap="new"> <div class="diff-input-gutter" data-diff-gutter="new"> <div class="diff-input-gutter-inner" data-diff-new-ln></div> </div> <div class="diff-input-body"> <pre class="diff-input-highlight" aria-hidden="true"><code class="hljs diff-input-code" data-diff-new-hl></code></pre> <textarea data-diff-new data-tools-copy-source="diff-new" wrap="off" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" class="diff-input-textarea" placeholder="输入修改后的文本..."></textarea> <button class="tools-copy-btn" type="button" data-tools-copy-btn data-copy-source="diff-new" aria-label="复制内容"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--default size-4" data-icon="lucide:copy">   <use href="#ai:lucide:copy"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 24 24" class="tools-copy-icon tools-copy-icon--copied size-4" data-icon="lucide:check">   <use href="#ai:lucide:check"></use>  </svg> </button> </div> </div> </div> </div> </div> <div class="mt-6 flex flex-col gap-2"> <span class="text-sm font-medium">对比结果</span> <div class="tools-wide"> <div class="border-input bg-background overflow-hidden rounded-2xl border"> <div class="diff-result-layout"> <div class="diff-result-main" data-diff-result-main> <div class="diff-result-panels" data-diff-output> <div class="diff-result-placeholder">点击"生成对比"查看结果</div> </div> </div> <aside class="diff-result-outline" aria-label="差异块目录"> <div class="diff-result-outline-title">差异块目录</div> <div class="diff-result-outline-list" data-diff-outline></div> </aside> </div> </div> </div> </div> </div> </section> </div> </section> <script type="module" src="/_astro/tools.astro_astro_type_script_index_0_lang.BcP6WK2e.js"></script> <style>
+    :root {
+      --tools-wide-max: 72rem; /* ~1.5x of max-w-3xl (48rem) */
+      --tools-wide-card-max: 76rem;
+      --tools-editor-font-size: 12px;
+      --tools-editor-line-height: 1.45;
+    }
+
+    .tools-wide {
+      width: min(var(--tools-wide-max), calc(100vw - 2rem));
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tools-wide-card {
+      width: min(var(--tools-wide-card-max), calc(100vw - 1rem));
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tools-action-btn,
+    .tools-secondary-btn {
+      border-radius: 0.85rem;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition:
+        background-color 150ms ease,
+        color 150ms ease,
+        border-color 150ms ease,
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        opacity 140ms ease;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      will-change: transform;
+    }
+
+    .tools-action-btn {
+      background: color-mix(in oklab, var(--muted) 85%, transparent);
+      color: var(--foreground);
+    }
+
+    .tools-action-btn:hover {
+      background: color-mix(in oklab, var(--muted) 100%, transparent);
+    }
+
+    .tools-action-btn:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    .tools-busy-btn[data-busy='true'],
+    .tools-busy-btn[data-busy='true'] * {
+      opacity: 0.7;
+      cursor: pointer !important;
+    }
+
+    .tools-secondary-btn {
+      background: color-mix(in oklab, var(--muted) 85%, transparent);
+      color: var(--foreground);
+      border-color: var(--border);
+    }
+
+    .tools-secondary-btn:hover {
+      background: color-mix(in oklab, var(--muted) 100%, transparent);
+    }
+
+    .tools-action-btn:active,
+    .tools-secondary-btn:active {
+      transform: scale(0.98);
+    }
+
+    .tools-swap-btn {
+      padding-inline: 0.75rem;
+      min-width: 2.5rem;
+      justify-content: center;
+    }
+
+    /* ==============================
+     * 文本框右上角拷贝按钮（通用样式）
+     * 仅显示图标；hover 容器时淡入；点击后浮出 Copied! 徽标
+     * ============================== */
+    .tools-copy-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .tools-copy-wrap > textarea {
+      width: 100%;
+      display: block;
+    }
+
+    .tools-copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border: 1px solid color-mix(in oklab, var(--border) 92%, transparent);
+      border-radius: 0.5rem;
+      background: color-mix(in oklab, var(--background) 90%, transparent);
+      color: var(--muted-foreground);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 2px color-mix(in oklab, black 8%, transparent);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity 140ms ease,
+        background-color 140ms ease,
+        color 140ms ease,
+        border-color 140ms ease;
+    }
+
+    .tools-copy-icon {
+      flex: none;
+    }
+
+    .tools-copy-icon--copied {
+      display: none;
+    }
+
+    /* hover 到文本框容器时显示按钮；按钮自己被 hover / focus 时保持显示 */
+    .tools-copy-wrap:hover .tools-copy-btn,
+    .diff-input-body:hover .tools-copy-btn,
+    .json-copy-wrap:hover .tools-copy-btn,
+    .tools-copy-btn:hover,
+    .tools-copy-btn:focus-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tools-copy-btn:hover {
+      background: color-mix(in oklab, var(--muted) 85%, transparent);
+      color: var(--foreground);
+    }
+
+    .tools-copy-btn:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 3px color-mix(in oklab, var(--ring) 45%, transparent),
+        0 1px 2px color-mix(in oklab, black 10%, transparent);
+    }
+
+    /* 复制成功态：按钮持续可见，图标切到 check */
+    .tools-copy-btn[data-copied='true'] {
+      opacity: 1;
+      pointer-events: auto;
+      background: color-mix(in oklab, var(--primary) 14%, var(--background));
+      color: var(--foreground);
+      border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+    }
+
+    .tools-copy-btn[data-copied='true'] .tools-copy-icon--default {
+      display: none;
+    }
+
+    .tools-copy-btn[data-copied='true'] .tools-copy-icon--copied {
+      display: inline-flex;
+    }
+
+    /* 复制成功态：短暂切到 check 图标 + 轻微缩放点击动画，无文字提示 */
+    .tools-copy-btn {
+      transition:
+        opacity 140ms ease,
+        background-color 140ms ease,
+        color 140ms ease,
+        border-color 140ms ease,
+        transform 120ms ease;
+    }
+
+    .tools-copy-btn:active {
+      transform: scale(0.92);
+    }
+
+    .tools-copy-btn[data-copied='true'] {
+      animation: tools-copy-pop 320ms ease;
+    }
+
+    @keyframes tools-copy-pop {
+      0% {
+        transform: scale(0.88);
+      }
+      60% {
+        transform: scale(1.08);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .tools-highlight-wrap {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      /* 与文本对比（.diff-result-panels / .diff-input-wrap）保持完全一致的字体排版 */
+      --tools-editor-font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+      --tools-editor-font-size: 13px;
+      --tools-editor-line-height: 20px;
+    }
+
+    .tools-highlight-wrap--with-lines {
+      --tools-line-number-width: 3.25rem;
+    }
+
+    .tools-line-numbers {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--tools-line-number-width);
+      overflow-y: hidden;
+      overflow-x: hidden;
+      border-right: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+      background: color-mix(in oklab, var(--muted) 55%, transparent);
+      color: var(--muted-foreground);
+      z-index: 2;
+      user-select: none;
+    }
+
+    .tools-line-numbers-content {
+      padding: 0.75rem 0.5rem;
+      font-family: var(--tools-editor-font-family);
+      font-size: var(--tools-editor-font-size);
+      line-height: var(--tools-editor-line-height);
+      font-weight: 400;
+      font-variant-ligatures: none;
+      font-kerning: none;
+      letter-spacing: 0;
+      text-align: right;
+    }
+
+    .tools-line-number {
+      display: block;
+    }
+
+    .tools-line-number--wrap {
+      color: transparent;
+    }
+
+    .tools-line-number--wrap::before {
+      content: '↳';
+      color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
+    }
+
+    .tools-highlight-pre {
+      margin: 0;
+      position: absolute;
+      inset: 0;
+      overflow: auto;
+      padding: 0.75rem 1rem;
+      box-sizing: border-box;
+      font-family: var(--tools-editor-font-family);
+      font-size: var(--tools-editor-font-size);
+      line-height: var(--tools-editor-line-height);
+      font-weight: 400;
+      pointer-events: none;
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      tab-size: 2;
+      -moz-tab-size: 2;
+      font-variant-ligatures: none;
+      font-kerning: none;
+      letter-spacing: 0;
+      word-spacing: 0;
+      font-synthesis-weight: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      /* 与 textarea 的垂直滚动条占位保持一致，避免内容区宽度不一致导致光标水平/垂直错位 */
+      scrollbar-gutter: stable;
+    }
+
+    .tools-highlight-wrap--with-lines .tools-highlight-pre,
+    .tools-highlight-wrap--with-lines .tools-highlight-textarea {
+      padding-left: calc(1rem + var(--tools-line-number-width));
+    }
+
+    .tools-highlight-wrap--smart-wrap .tools-highlight-pre,
+    .tools-highlight-wrap--smart-wrap .tools-highlight-textarea {
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .tools-highlight-pre::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+
+    .tools-highlight-code {
+      display: block;
+      min-height: 100%;
+    }
+
+    .tools-highlight-code,
+    .tools-highlight-code * {
+      font: inherit !important;
+      font-family: inherit !important;
+      font-size: inherit !important;
+      font-style: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+      letter-spacing: inherit !important;
+      word-spacing: inherit !important;
+      font-kerning: inherit !important;
+      font-variant-ligatures: inherit !important;
+      font-feature-settings: inherit !important;
+      font-synthesis-weight: inherit !important;
+      white-space: inherit;
+      tab-size: inherit;
+      -moz-tab-size: inherit;
+    }
+
+    .tools-highlight-textarea {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: block;
+      resize: vertical;
+      box-sizing: border-box;
+      padding: 0.75rem 1rem;
+      background: transparent;
+      color: transparent;
+      caret-color: var(--foreground);
+      font-family: var(--tools-editor-font-family);
+      font-size: var(--tools-editor-font-size);
+      line-height: var(--tools-editor-line-height);
+      font-weight: 400;
+      tab-size: 2;
+      -moz-tab-size: 2;
+      font-variant-ligatures: none;
+      font-kerning: none;
+      letter-spacing: 0;
+      word-spacing: 0;
+      font-synthesis-weight: none;
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      /* 固定预留垂直滚动条空间，让 textarea 的内容区宽度无论是否出滚动条都与 pre 一致，
+         从而保证两者换行点、字符 x 坐标完全对齐。 */
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+
+    .tools-highlight-wrap.is-editing .tools-highlight-pre {
+      opacity: 0;
+    }
+
+    .tools-highlight-wrap.is-editing .tools-highlight-textarea {
+      color: var(--foreground);
+      caret-color: var(--foreground);
+    }
+
+    .tools-highlight-wrap--nowrap .tools-highlight-pre {
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    .tools-highlight-wrap--nowrap .tools-highlight-textarea {
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+      overflow: auto;
+    }
+
+    .tools-btn-loader {
+      align-items: center;
+    }
+
+    .tools-btn-loader.hidden {
+      display: none;
+    }
+
+    .tools-btn-loader:not(.hidden) {
+      display: inline-flex;
+    }
+
+    /* === Diff Input Editor === */
+    .diff-input-wrap {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--background);
+      height: 26rem;
+      /* 下列 4 个属性是输入区高亮同步的关键，不要再在子元素里覆盖 */
+      font-family: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+      font-size: 13px;
+      line-height: 20px;
+      font-variant-ligatures: none;
+      font-kerning: none;
+      font-feature-settings: normal;
+      text-rendering: geometricPrecision;
+      letter-spacing: 0;
+      tab-size: 2;
+      -moz-tab-size: 2;
+    }
+
+    .diff-input-wrap:focus-within {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+    }
+
+    .diff-input-gutter {
+      width: 3.25rem;
+      flex: none;
+      overflow: hidden;
+      border-right: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+      background: color-mix(in oklab, var(--muted) 55%, transparent);
+      color: var(--muted-foreground);
+      user-select: none;
+      height: 100%;
+    }
+
+    .diff-input-gutter-inner {
+      padding: 10px 6px;
+      font: inherit;
+      text-align: right;
+    }
+
+    .diff-input-line-no {
+      display: block;
+      height: 20px;
+      line-height: 20px;
+    }
+
+    .diff-input-body {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      height: 100%;
+    }
+
+    .diff-input-highlight,
+    .diff-input-textarea {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border: 0;
+      font: inherit;
+      font-variant-ligatures: inherit;
+      font-kerning: inherit;
+      font-feature-settings: inherit;
+      letter-spacing: inherit;
+      tab-size: inherit;
+      -moz-tab-size: inherit;
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+      word-spacing: 0;
+    }
+
+    .diff-input-highlight {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    .diff-input-code,
+    .diff-input-code * {
+      font: inherit;
+      font-variant-ligatures: inherit;
+      font-kerning: inherit;
+      font-feature-settings: inherit;
+      letter-spacing: inherit;
+      white-space: inherit;
+      tab-size: inherit;
+      -moz-tab-size: inherit;
+      word-spacing: inherit;
+    }
+
+    .diff-input-code {
+      display: block;
+      min-height: 100%;
+    }
+
+    .diff-input-textarea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      resize: none;
+      overflow: auto;
+      outline: none;
+      background: transparent;
+      color: transparent;
+      caret-color: var(--foreground);
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    .diff-input-textarea::placeholder {
+      color: var(--muted-foreground);
+      -webkit-text-fill-color: var(--muted-foreground);
+    }
+
+    /* === Diff Result === */
+    .diff-result-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .diff-result-main {
+      height: 36rem;
+      overflow: hidden;
+    }
+
+    .diff-result-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      height: 100%;
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+      font-size: 13px;
+      line-height: 20px;
+      font-variant-ligatures: none;
+      font-kerning: none;
+      letter-spacing: 0;
+      word-spacing: 0;
+      tab-size: 2;
+      -moz-tab-size: 2;
+    }
+
+    .diff-result-placeholder {
+      grid-column: 1 / -1;
+      padding: 1rem;
+      color: var(--muted-foreground);
+      background: var(--background);
+    }
+
+    .diff-result-panel {
+      min-width: 0;
+      overflow: auto;
+      background: var(--background);
+    }
+
+    .diff-result-panel-inner {
+      min-width: max-content;
+    }
+
+    .diff-result-row {
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      min-height: 20px;
+      white-space: pre;
+      font: inherit;
+    }
+
+    .diff-result-row code,
+    .diff-result-code {
+      display: inline;
+      font: inherit;
+      white-space: pre;
+      padding-right: 0.6rem;
+    }
+
+    .diff-result-code * {
+      font: inherit;
+      font-variant-ligatures: inherit;
+      letter-spacing: inherit;
+    }
+
+    .diff-result-lineno {
+      display: inline-block;
+      width: 3.25rem;
+      text-align: right;
+      padding: 0 0.5rem 0 0.5rem;
+      color: var(--muted-foreground);
+      opacity: 0.85;
+      user-select: none;
+      flex: none;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: inherit;
+      font: inherit;
+    }
+
+    .diff-result-row.diff-result-added .diff-result-lineno {
+      background: color-mix(in oklab, #10b981 18%, var(--background));
+    }
+
+    .diff-result-row.diff-result-removed .diff-result-lineno {
+      background: color-mix(in oklab, #f43f5e 18%, var(--background));
+    }
+
+    .diff-result-row.diff-result-same .diff-result-lineno {
+      background: var(--background);
+    }
+
+    .diff-result-row.diff-result-blank .diff-result-lineno {
+      background: var(--background);
+    }
+
+    .diff-result-prefix {
+      display: inline-block;
+      width: 1rem;
+      text-align: center;
+      opacity: 0.5;
+      user-select: none;
+      flex: none;
+      font: inherit;
+    }
+
+    .diff-result-block-marker {
+      padding: 0.25rem 0.75rem;
+      background: color-mix(in oklab, #f59e0b 14%, var(--background));
+      color: color-mix(in oklab, #f59e0b 78%, var(--foreground));
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      scroll-margin-top: 4rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      position: sticky;
+      left: 0;
+      min-width: max-content;
+    }
+
+    .diff-result-block-idx {
+      flex: none;
+    }
+
+    .diff-result-block-hunk {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+      font-weight: 500;
+      opacity: 0.9;
+      white-space: pre;
+    }
+
+    .diff-result-added {
+      background: color-mix(in oklab, #10b981 18%, transparent);
+    }
+
+    .diff-result-removed {
+      background: color-mix(in oklab, #f43f5e 18%, transparent);
+    }
+
+    .diff-result-same {
+      color: color-mix(in oklab, var(--foreground) 85%, transparent);
+    }
+
+    .diff-result-blank {
+      background: color-mix(in oklab, var(--muted) 30%, transparent);
+    }
+
+    .diff-result-empty {
+      grid-column: 1 / -1;
+      padding: 0.75rem 1rem;
+      color: var(--muted-foreground);
+      background: var(--background);
+    }
+
+    .diff-result-error {
+      grid-column: 1 / -1;
+      padding: 0.75rem 1rem;
+      color: color-mix(in oklab, #ef4444 78%, var(--foreground));
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: var(--background);
+    }
+
+    .diff-result-outline {
+      border-top: 1px solid var(--border);
+      background: color-mix(in oklab, var(--muted) 30%, transparent);
+      padding: 0.45rem 0.35rem;
+    }
+
+    .diff-result-outline-title {
+      display: none;
+    }
+
+    .diff-result-outline-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: center;
+      gap: 0.35rem;
+      max-height: 16rem;
+      overflow: auto;
+    }
+
+    .diff-result-outline-empty {
+      color: var(--muted-foreground);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.1rem;
+      text-align: center;
+    }
+
+    .diff-result-outline-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in oklab, var(--border) 86%, transparent);
+      background: color-mix(in oklab, var(--background) 88%, transparent);
+      color: var(--foreground);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1;
+      transition: transform 0.12s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .diff-result-outline-chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px color-mix(in oklab, var(--foreground) 12%, transparent);
+    }
+
+    .diff-result-outline-chip--add {
+      background: color-mix(in oklab, #10b981 28%, var(--background));
+      border-color: color-mix(in oklab, #10b981 55%, var(--border));
+      color: color-mix(in oklab, #10b981 30%, var(--foreground));
+    }
+
+    .diff-result-outline-chip--remove {
+      background: color-mix(in oklab, #f43f5e 28%, var(--background));
+      border-color: color-mix(in oklab, #f43f5e 55%, var(--border));
+      color: color-mix(in oklab, #f43f5e 30%, var(--foreground));
+    }
+
+    .diff-result-outline-chip--modify {
+      background: color-mix(in oklab, #f59e0b 28%, var(--background));
+      border-color: color-mix(in oklab, #f59e0b 55%, var(--border));
+      color: color-mix(in oklab, #f59e0b 30%, var(--foreground));
+    }
+
+    @media (min-width: 1024px) {
+      .diff-result-layout {
+        grid-template-columns: minmax(0, 1fr) 3rem;
+      }
+
+      .diff-result-outline {
+        border-top: 0;
+        border-left: 1px solid var(--border);
+        max-height: 36rem;
+        overflow: hidden;
+      }
+
+      .diff-result-outline-list {
+        max-height: calc(36rem - 1rem);
+      }
+    }
+
+    .hljs {
+      color: inherit;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: var(--muted-foreground);
+    }
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-literal {
+      color: color-mix(in oklab, #8b5cf6 75%, var(--foreground));
+    }
+    .hljs-string,
+    .hljs-attr,
+    .hljs-regexp {
+      color: color-mix(in oklab, #10b981 75%, var(--foreground));
+    }
+    .hljs-number,
+    .hljs-built_in {
+      color: color-mix(in oklab, #f59e0b 75%, var(--foreground));
+    }
+    .hljs-title,
+    .hljs-section {
+      color: color-mix(in oklab, #38bdf8 75%, var(--foreground));
+    }
+  </style>  </main> <footer class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-center justify-center gap-y-2 px-4 sm:mb-4 sm:flex-row sm:justify-between"> <div class="flex flex-wrap items-center justify-center gap-x-2 text-center"> <span class="text-muted-foreground text-sm">
+&copy; 2026 Reo Lee.
+</span> <div data-orientation="vertical" role="none" data-slot="separator-root" class="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px hidden h-4! sm:block"></div> <p class="text-muted-foreground text-sm">
+Powered by <a href="https://github.com/jktrn/astro-erudite" target="_blank" class="inline-block transition-colors duration-300 ease-in-out underline decoration-muted-foreground underline-offset-[3px] hover:decoration-foreground text-foreground"> Astro-Enscribe </a>.
+</p> </div> <ul class="flex flex-wrap gap-2" role="list"> <li> <a href="https://github.com/ireolee" target="_blank" class="duration-300 ease-in-out inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" aria-label="GitHub" title="GitHub">  <svg width="1em" height="1em" class="size-4" data-icon="lucide:github">   <symbol id="ai:lucide:github" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5c.08-1.25-.27-2.48-1-3.5c.28-1.15.28-2.35 0-3.5c0 0-1 0-3 1.5c-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5c-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></g></symbol><use href="#ai:lucide:github"></use>  </svg>  </a> </li><li> <a href="mailto:ireolee@gmail.com" target="_blank" class="duration-300 ease-in-out inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" aria-label="Email" title="Email">  <svg width="1em" height="1em" class="size-4" data-icon="lucide:mail">   <symbol id="ai:lucide:mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></g></symbol><use href="#ai:lucide:mail"></use>  </svg>  </a> </li><li> <a href="/rss.xml" target="_blank" class="duration-300 ease-in-out inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg:not([class*='size-'])]:size-4 shrink-0 [&#38;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9" aria-label="RSS" title="RSS">  <svg width="1em" height="1em" class="size-4" data-icon="lucide:rss">   <symbol id="ai:lucide:rss" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></g></symbol><use href="#ai:lucide:rss"></use>  </svg>  </a> </li> </ul> </footer> <script type="module">const c=()=>document.documentElement.getAttribute("data-theme")==="dark"?"dark":"light",m=()=>{const e=document.getElementById("comments-section"),s=document.getElementById("comments");if(!(s instanceof HTMLElement)||s.dataset.giscusLoaded==="true")return;const n=s.dataset.giscusRepo,r=s.dataset.giscusRepoId,i=s.dataset.giscusCategory,o=s.dataset.giscusCategoryId;if(!n||!r||!i||!o){e instanceof HTMLElement&&e.classList.add("hidden");return}e instanceof HTMLElement&&e.classList.remove("hidden");const t=document.createElement("script");t.src="https://giscus.app/client.js",t.async=!0,t.crossOrigin="anonymous",t.setAttribute("data-repo",n),t.setAttribute("data-repo-id",r),t.setAttribute("data-category",i),t.setAttribute("data-category-id",o),t.setAttribute("data-mapping","pathname"),t.setAttribute("data-strict","0"),t.setAttribute("data-reactions-enabled","1"),t.setAttribute("data-emit-metadata","0"),t.setAttribute("data-input-position","bottom"),t.setAttribute("data-theme",c()),t.setAttribute("data-lang","zh-CN"),s.appendChild(t),s.dataset.giscusLoaded="true"},d=()=>{const e=document.querySelector("iframe.giscus-frame");e instanceof HTMLIFrameElement&&e.contentWindow?.postMessage({giscus:{setConfig:{theme:c()}}},"https://giscus.app")};let a=null;const g=()=>{a||(a=new MutationObserver(()=>d()),a.observe(document.documentElement,{attributes:!0,attributeFilter:["data-theme"]}))},u=()=>{m(),d(),g()};document.addEventListener("astro:page-load",u);document.addEventListener("astro:after-swap",u);</script> <script type="module">const c=()=>{const i="article.prose, code, pre, kbd, samp, script, style, textarea, svg, math, .shiki, .expressive-code, .katex",o=e=>e.replace(/([\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}\u3000-\u303F\uFF00-\uFFEF])([A-Za-z0-9!"#$%&'()*+,./:;<=>?@[\]\\^_{}|~\-])/gu,"$1 $2").replace(/([A-Za-z0-9!"#$%&'()*+,./:;<=>?@[\]\\^_{}|~\-])([\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}\u3000-\u303F\uFF00-\uFFEF])/gu,"$1 $2"),r=document.body;if(!r)return;const p=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode(e){const t=e.nodeValue;if(!t||!t.trim())return NodeFilter.FILTER_REJECT;const n=e.parentElement;return!n||n.closest(i)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});let a;for(;a=p.nextNode();){const e=a.nodeValue;if(!e)continue;const t=o(e);t!==e&&(a.nodeValue=t)}};document.addEventListener("astro:page-load",c);document.addEventListener("astro:after-swap",c);</script> <script type="module">const v=()=>{const t=document.querySelector("header[data-auto-hide-header]");if(!(t instanceof HTMLElement))return;const l=window,d=l.__autoHideHeaderCleanup;typeof d=="function"&&d();const u=80,y=10,E=()=>{t.classList.add("-translate-y-full","opacity-0","pointer-events-none"),t.classList.remove("translate-y-0","opacity-100"),t.dataset.hidden="true"},s=()=>{t.classList.remove("-translate-y-full","opacity-0","pointer-events-none"),t.classList.add("translate-y-0","opacity-100"),t.dataset.hidden="false"};s();let o=window.scrollY,i=!1,f=0;const m=e=>{f=Date.now()+e,s(),o=window.scrollY},c=[];t.querySelectorAll("details").forEach(e=>{if(!(e instanceof HTMLDetailsElement))return;const a=()=>m(400);e.addEventListener("toggle",a),c.push(()=>e.removeEventListener("toggle",a));const n=e.querySelector("summary");if(n instanceof HTMLElement){const r=()=>m(400);n.addEventListener("click",r),c.push(()=>n.removeEventListener("click",r))}});const L=()=>{const e=window.scrollY;if(Date.now()<f){s(),o=e;return}if(t.querySelector("details[open]")){s(),o=e;return}if(e<=u){s(),o=e;return}const a=e-o;if(Math.abs(a)<y)return;const n=document.activeElement,r=n instanceof HTMLElement&&(()=>{try{return n.matches(":focus-visible")}catch{return!1}})(),w=n instanceof HTMLElement&&t.contains(n)&&r;a>0&&e>u&&!w?E():a<0&&s(),o=e},p=()=>{i||(i=!0,requestAnimationFrame(()=>{L(),i=!1}))};window.addEventListener("scroll",p,{passive:!0}),l.__autoHideHeaderCleanup=()=>{window.removeEventListener("scroll",p),c.forEach(e=>e())}};document.addEventListener("astro:page-load",v);document.addEventListener("astro:after-swap",v);</script> <script type="module">(()=>{const e=window,c=()=>{const n=document.querySelector("header[data-auto-hide-header]"),r=document.documentElement;if(!(n instanceof HTMLElement))return r.style.removeProperty("--anchor-scroll-offset"),()=>{};const t=()=>{const a=n.getBoundingClientRect().height;r.style.setProperty("--anchor-scroll-offset",`${Math.ceil(a)}px`)};t();const s=new ResizeObserver(t);return s.observe(n),window.addEventListener("resize",t,{passive:!0}),()=>{s.disconnect(),window.removeEventListener("resize",t)}},o=()=>{typeof e.__anchorScrollOffsetCleanup=="function"&&e.__anchorScrollOffsetCleanup(),e.__anchorScrollOffsetCleanup=c()};document.addEventListener("astro:page-load",o),document.addEventListener("astro:after-swap",o),document.addEventListener("astro:before-swap",()=>{typeof e.__anchorScrollOffsetCleanup=="function"&&e.__anchorScrollOffsetCleanup(),e.__anchorScrollOffsetCleanup=null})})();</script> <script type="module">(()=>{const a=window;if(a.__headingAnchorCopyBound)return;a.__headingAnchorCopyBound=!0;const r=async n=>{try{if(navigator.clipboard?.writeText)return await navigator.clipboard.writeText(n),!0}catch{}try{const t=document.createElement("textarea");t.value=n,t.setAttribute("readonly","true"),t.style.position="fixed",t.style.left="-9999px",t.style.top="0",document.body.appendChild(t),t.select();const e=document.execCommand("copy");return t.remove(),e}catch{return!1}};document.addEventListener("click",async n=>{const e=n.target?.closest("a[data-heading-anchor]");if(!(e instanceof HTMLAnchorElement))return;n.preventDefault();const o=e.dataset.headingAnchor||"";if(!o)return;const c=`${window.location.origin}${window.location.pathname}#${o}`;await r(c)&&(e.dataset.copied="true",window.history.replaceState(null,"",`#${o}`),window.setTimeout(()=>{delete e.dataset.copied},900))},{capture:!0})})();</script> </body> </html>
